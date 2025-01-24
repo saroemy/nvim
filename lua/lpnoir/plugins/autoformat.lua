@@ -17,6 +17,15 @@ return { -- Autoformat
     formatters_by_ft = {
       lua = { 'stylua' },
       php = { 'php_cs_fixer' },
+      twig = { 'djlint' },
+      css = { 'prettier' },
+      -- javascript = { 'prettier' },
+      -- typescript = { 'prettier' },
+      -- javascriptreact = { 'prettier' },
+      -- typescriptreact = { 'prettier' },
+      -- html = { 'prettier' },
+      -- json = { 'prettier' },
+      -- yaml = { 'prettier' },
     },
     formatters = {
       php_cs_fixer = {
