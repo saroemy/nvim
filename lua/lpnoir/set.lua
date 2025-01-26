@@ -13,8 +13,8 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- Set indentation to 4 spaces
--- vim.opt.tabstop = 4
--- vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 
 -- Enable break indent

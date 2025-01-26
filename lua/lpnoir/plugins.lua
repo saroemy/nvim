@@ -1,7 +1,10 @@
 return {
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
-  -- Highlight todo, notes, etc in
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { -- Highlight todo, notes, etc in
+    'folke/todo-comments.nvim',
+    event = 'VimEnter',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    opts = { signs = false },
+  },
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -30,6 +33,7 @@ return {
         { '<leader>a', group = '[A]vante', mode = { 'n', 'v' } },
         { '<leader>b', group = '[B]uffer' },
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>w', group = '[W]indow operations' },
         { '<leader>f', group = '[F]ind' },
         { '<leader>g', group = '[G]it' },
         { '<leader>p', group = '[P]roject' },
@@ -39,10 +43,14 @@ return {
       },
     },
   },
-  -- Add surround functions
-  --
-  -- ysiw( surrounds word with parentheses
-  -- cs"' changes quotes from " to '
-  -- ds" removes surrounding quotes
-  { 'tpope/vim-surround' },
+  { -- Detect tabstop and shiftwidth automatically
+    'tpope/vim-sleuth',
+  },
+  { -- Add surround functions
+    --
+    -- ysiw( surrounds word with parentheses
+    -- cs"' changes quotes from " to '
+    -- ds" removes surrounding quotes
+    'tpope/vim-surround',
+  },
 }
