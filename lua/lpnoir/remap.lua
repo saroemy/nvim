@@ -35,10 +35,6 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down' 
 -- Show error on popup, useful for error copy
 vim.keymap.set('n', '<leader>se', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Show error popup' })
 
--- Scroll the page 
-vim.keymap.set('n', 'º', '<C-y>', { noremap = true })
-vim.keymap.set('n', 'ª', '<C-e>', { noremap = true })
-
 -- Add blank line without exit from normal mode
 vim.keymap.set('n', '<S-CR>', 'O<Esc>', { noremap = true })
 vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
@@ -46,12 +42,9 @@ vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
 -- Close the current buffer
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent = true })
 
--- Remap window prefix-key
--- vim.keymap.set('n', '<leader>w', '<C-w>', { desc = '[w]indow operations' })
-
 -- Change window dimension
-vim.keymap.set('n', '<M-Up>', '<C-w>+', { desc = 'Increase window height' })
-vim.keymap.set('n', '<M-Down>', '<C-w>-', { desc = 'Decrease window height' })
-vim.keymap.set('n', '<M-Left>', '<C-w><', { desc = 'Decrease window width' })
-vim.keymap.set('n', '<M-Right>', '<C-w>>', { desc = 'Increase window width' })
+vim.keymap.set('n', 'º', '<C-w>+', { desc = 'Increase window height' })
+vim.keymap.set('n', 'ª', '<C-w>-', { desc = 'Decrease window height' })
+vim.keymap.set('n', '∆', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '¬', '<C-w>>', { desc = 'Increase window width' })
 

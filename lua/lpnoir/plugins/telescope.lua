@@ -34,8 +34,8 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp Tags' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = '[G]it [F]nd files ' })
 
-    vim.keymap.set('n', '∆', ':bprevious<CR>', { silent = true })
-    vim.keymap.set('n', '¬', ':bnext<CR>', { silent = true })
+    vim.keymap.set('n', 'H', ':bprevious<CR>', { silent = true })
+    vim.keymap.set('n', 'L', ':bnext<CR>', { silent = true })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
