@@ -7,23 +7,23 @@ vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = '[P]roject [V]iew' })
 -- Use JK for exit from insert mode
 vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
+-- Save changes
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = '[S]ave file' })
+
+-- YANK, PASTE AND DELETE
+--
 -- Yank in the system clipboard
 vim.keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank in the system clipboard' })
 vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank in the system clipboard' })
-
 -- Paste preserving the clipboard
 vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[P]aste preserving clipboard' })
-
 -- Delete preserving clipboard
 vim.keymap.set('v', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })
 vim.keymap.set('n', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })
-
 -- Change preserving clipboard
 vim.keymap.set('v', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })
 vim.keymap.set('n', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })
 
--- Save changes
-vim.keymap.set('n', 'ß', ':w<CR>', { desc = '[S]ave file' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
@@ -43,24 +43,11 @@ vim.keymap.set('n', 'ª', '<C-e>', { noremap = true })
 vim.keymap.set('n', '<S-CR>', 'O<Esc>', { noremap = true })
 vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
 
--- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
 -- Close the current buffer
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent = true })
 
 -- Remap window prefix-key
-vim.keymap.set('n', '<leader>w', '<C-w>', { desc = '[w]indow operations' })
+-- vim.keymap.set('n', '<leader>w', '<C-w>', { desc = '[w]indow operations' })
 
 -- Change window dimension
 vim.keymap.set('n', '<M-Up>', '<C-w>+', { desc = 'Increase window height' })
