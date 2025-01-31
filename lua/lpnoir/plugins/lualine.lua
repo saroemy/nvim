@@ -6,7 +6,8 @@ return {
       lualine_c = {
         {
           'buffers',
-          component_separators = { left = '|', right = '|' },
+          component_separators = { left = '', right = '' },
+          symbols = { alternate_file = '' },
         },
       },
     },

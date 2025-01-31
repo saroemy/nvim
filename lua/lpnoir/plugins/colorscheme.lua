@@ -18,7 +18,7 @@ return {
       require('catppuccin').setup(opts)
 
       -- inserisci load the colorscheme here
-      vim.cmd.colorscheme 'catppuccin-macchiato'
+      vim.cmd.colorscheme 'catppuccin-frappe'
     end,
   },
 }
