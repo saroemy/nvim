@@ -19,6 +19,7 @@ return { -- Highlight, edit, and navigate code
       'vimdoc',
       'php',
       'javascript',
+      'typescript',
       'twig',
     },
     auto_install = true,
@@ -29,7 +30,7 @@ return { -- Highlight, edit, and navigate code
       --  the list of additional_vim_regex_highlighting and disabled languages for indent.
       additional_vim_regex_highlighting = { 'ruby', 'lua', 'css', 'php' },
     },
-    indent = { enable = true, disable = { 'ruby', 'lua', 'css' , 'php' } },
+    indent = { enale = true, disable = { 'ruby', 'lua', 'css', 'php' } },
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:

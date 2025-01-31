@@ -11,4 +11,10 @@ return {
   {
     'christoomey/vim-tmux-navigator',
   },
+  {
+    'OscarCreator/rsync.nvim',
+    build = 'make',
+    dependencies = 'nvim-lua/plenary.nvim',
+    opts = {},
+  },
 }
