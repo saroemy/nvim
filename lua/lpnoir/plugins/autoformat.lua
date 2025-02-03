@@ -29,7 +29,7 @@ return { -- Autoformat
     },
     formatters = {
       php_cs_fixer = {
-        command = vim.fn.stdpath 'data' .. '/mason/bin/php-cs-fixer', -- Percorso corretto
+        command = vim.fn.stdpath 'data' .. '/mason/bin/php-cs-fixer',
         args = { 'fix', '--rules=@Symfony', '$FILENAME' },
       },
     },
