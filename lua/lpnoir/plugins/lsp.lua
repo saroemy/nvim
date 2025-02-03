@@ -127,14 +127,20 @@ return {
       vim.diagnostic.config {
         virtual_text = {
           prefix = function(diagnostic)
-            if diagnostic.severity == vim.diagnostic.severity.WARN then
+            if
+              diagnostic.severity == vim.diagnostic.severity.WARN
+              or diagnostic.severity == vim.diagnostic.severity.HINT
+            then
               return ''
             end
             return '●'
           end,
           format = function(diagnostic)
-            if diagnostic.severity == vim.diagnostic.severity.WARN then
-              return '' -- Empty string for warnings
+            if
+              diagnostic.severity == vim.diagnostic.severity.WARN
+              or diagnostic.severity == vim.diagnostic.severity.HINT
+            then
+              return '' -- Empty string for warnings, hints and info
             end
             return diagnostic.message
           end,
