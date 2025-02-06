@@ -39,4 +39,15 @@ return { -- Highlight, edit, and navigate code
     --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
     --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   },
+  init = function()
+    -- Registra Twig come parser per i file Jinja
+    vim.treesitter.language.register('twig', 'jinja')
+
+    -- Associa i file .jinja al filetype jinja
+    vim.filetype.add {
+      extension = {
+        jinja = 'jinja',
+      },
+    }
+  end,
 }

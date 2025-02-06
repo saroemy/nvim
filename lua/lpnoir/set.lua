@@ -62,4 +62,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
-
+-- For remapping the p in netrw
+vim.g.netrw_preview = 0

@@ -42,9 +42,18 @@ vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
 -- Close the current buffer
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent = true })
 
+-- Keep cursor centered when scrolling
+vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down and center', silent = true })
+vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and center', silent = true })
+
 -- Change window dimension
 vim.keymap.set('n', 'º', '<C-w>+', { desc = 'Increase window height' })
 vim.keymap.set('n', 'ª', '<C-w>-', { desc = 'Decrease window height' })
-vim.keymap.set('n', '∆', '<C-w><', { desc = 'Decrease window width' })
-vim.keymap.set('n', '¬', '<C-w>>', { desc = 'Increase window width' })
+vim.keymap.set('n', '¬', '<C-w><', { desc = 'Decrease window width' })
+vim.keymap.set('n', '∆', '<C-w>>', { desc = 'Increase window width' })
 
+-- Change the project root
+vim.keymap.set('n', '<leader>pr', ':cd %<CR>', { desc = '[P]roject [R]oot' })
+
+-- Show dashboard
+vim.keymap.set('n', '<leader>sd', ':Dashboard<CR>', { desc = '[S]how [D]ashboard' })

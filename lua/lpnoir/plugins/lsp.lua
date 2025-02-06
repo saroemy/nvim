@@ -22,8 +22,24 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      -- Useful status updates for LSP.
-      { 'j-hui/fidget.nvim', opts = {} },
+      { -- Useful status updates for LSP.
+        'j-hui/fidget.nvim',
+        opts = {
+          progress = {
+            ignore = { -- Remove the contiunous popup for pylsp lint
+              function(msg)
+                return msg.lsp_client.name == 'pylsp' and string.find(msg.title, 'lint:')
+              end,
+            },
+          },
+          notification = {
+            -- Options related to the notification window and buffer
+            window = {
+              winblend = 0, -- Background color opacity in the notification window
+            },
+          },
+        },
+      },
 
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
@@ -127,20 +143,14 @@ return {
       vim.diagnostic.config {
         virtual_text = {
           prefix = function(diagnostic)
-            if
-              diagnostic.severity == vim.diagnostic.severity.WARN
-              or diagnostic.severity == vim.diagnostic.severity.HINT
-            then
+            if diagnostic.severity == vim.diagnostic.severity.WARN or diagnostic.severity == vim.diagnostic.severity.HINT then
               return ''
             end
             return '●'
           end,
           format = function(diagnostic)
-            if
-              diagnostic.severity == vim.diagnostic.severity.WARN
-              or diagnostic.severity == vim.diagnostic.severity.HINT
-            then
-              return '' -- Empty string for warnings, hints and info
+            if diagnostic.severity == vim.diagnostic.severity.WARN or diagnostic.severity == vim.diagnostic.severity.HINT then
+              return '' -- Empty string for warnings and hints
             end
             return diagnostic.message
           end,
@@ -152,25 +162,11 @@ return {
         severity_sort = true,
       }
 
-      -- LSP servers and clients are able to communicate to each other what features they support.
-      --  By default, Neovim doesn't support everything that is in the LSP specification.
-      --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-      --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
-      -- Enable the following language servers
-      --
-      --  Add any additional override configuration in the following tables. Available keys are:
-      --  - cmd (table): Override the default command used to start the server
-      --  - filetypes (table): Override the default list of associated filetypes for the server
-      --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-      --  - settings (table): Override the default settings passed when initializing the server.
-      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         intelephense = {},
-        cssls = {},
-        ts_ls = {},
         pylsp = {
           settings = {
             pylsp = {
@@ -182,10 +178,6 @@ return {
             },
           },
         },
-        html = {
-          filetypes = { 'twig', 'html' },
-        },
-        twiggy_language_server = {},
         lua_ls = {
           settings = {
             Lua = {
@@ -196,6 +188,14 @@ return {
             },
           },
         },
+        html = {
+          filetypes = { 'twig', 'html' },
+        },
+        cssls = {},
+        ts_ls = {
+          filetypes = { 'javascript', 'typescript' },
+        },
+        twiggy_language_server = {},
       }
 
       -- Ensure the servers and tools above are installed
