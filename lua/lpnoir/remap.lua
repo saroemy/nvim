@@ -24,9 +24,8 @@ vim.keymap.set('n', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard'
 vim.keymap.set('v', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })
 vim.keymap.set('n', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })
 
-
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
+vim.keymap.set('n', '<C-q>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
 
 -- Move selected lines up and down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up' })
@@ -57,3 +56,7 @@ vim.keymap.set('n', '<leader>pr', ':cd %<CR>', { desc = '[P]roject [R]oot' })
 
 -- Show dashboard
 vim.keymap.set('n', '<leader>sd', ':Dashboard<CR>', { desc = '[S]how [D]ashboard' })
+
+-- Buffer navigation
+vim.keymap.set('n', 'H', ':bprevious<CR>', { silent = true })
+vim.keymap.set('n', 'L', ':bnext<CR>', { silent = true })
