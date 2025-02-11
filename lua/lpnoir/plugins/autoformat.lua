@@ -20,9 +20,9 @@ return { -- Autoformat
       twig = { 'djlint' },
       css = { 'prettier' },
       -- javascript = { 'prettier' },
-      -- typescript = { 'prettier' },
+      typescript = { 'prettier' },
+      typescriptreact = { 'prettier' },
       -- javascriptreact = { 'prettier' },
-      -- typescriptreact = { 'prettier' },
       -- html = { 'prettier' },
       -- json = { 'prettier' },
       -- yaml = { 'prettier' },
@@ -31,6 +31,15 @@ return { -- Autoformat
       php_cs_fixer = {
         command = vim.fn.stdpath 'data' .. '/mason/bin/php-cs-fixer',
         args = { 'fix', '--rules=@Symfony', '$FILENAME' },
+      },
+      djlint = {
+        args = {
+          '--max-line-length=160',
+          '--max-attribute-length=160',
+          '--blank-line-after-tag="load,extends,include,set"',
+          '--reformat',
+          '-',
+        },
       },
     },
   },

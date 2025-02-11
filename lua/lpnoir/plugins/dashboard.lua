@@ -3,6 +3,7 @@ return {
   event = 'VimEnter',
   opts = {
     theme = 'hyper',
+    change_to_vcs_root = true,
     config = {
       week_header = {
         enable = true,
@@ -26,14 +27,23 @@ return {
           icon = ' ',
           desc = 'Home',
           group = 'DiagnosticHint',
-          action = 'Explore ~/',
+          action = function()
+            local api = require 'nvim-tree.api'
+            api.tree.change_root '~/'
+            vim.cmd ':NvimTreeFocus'
+            vim.cmd 'normal hf'
+          end,
           key = 'h',
         },
         {
           icon = ' ',
           desc = 'Dotfiles',
           group = 'Number',
-          action = 'Explore ~/.config/nvim',
+          action = function()
+            local api = require 'nvim-tree.api'
+            api.tree.change_root '~/.config/nvim'
+            vim.cmd ':NvimTreeFocus'
+          end,
           key = 'd',
         },
       },

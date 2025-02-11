@@ -193,7 +193,7 @@ return {
         },
         cssls = {},
         ts_ls = {
-          filetypes = { 'javascript', 'typescript' },
+          filetypes = { 'javascript', 'typescript', 'typescriptreact' },
         },
         twiggy_language_server = {},
       }

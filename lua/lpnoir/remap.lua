@@ -2,10 +2,10 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Create keymap for the explorer
-vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = '[P]roject [V]iew' })
+vim.keymap.set('n', '<C-p>', ':NvimTreeToggle<CR>', { desc = '[P]roject [V]iew', silent = true })
 
 -- Use JK for exit from insert mode
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
+vim.keymap.set('i', '<C-è>', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
 -- Save changes
 vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = '[S]ave file' })
@@ -28,11 +28,11 @@ vim.keymap.set('n', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard'
 vim.keymap.set('n', '<C-q>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
 
 -- Move selected lines up and down
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up' })
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down' })
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up', silent = true })
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down', silent = true })
 
 -- Show error on popup, useful for error copy
-vim.keymap.set('n', '<leader>se', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Show error popup' })
+vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, { desc = 'Show error popup' })
 
 -- Add blank line without exit from normal mode
 vim.keymap.set('n', '<S-CR>', 'O<Esc>', { noremap = true })
@@ -51,12 +51,12 @@ vim.keymap.set('n', 'ª', '<C-w>-', { desc = 'Decrease window height' })
 vim.keymap.set('n', '¬', '<C-w><', { desc = 'Decrease window width' })
 vim.keymap.set('n', '∆', '<C-w>>', { desc = 'Increase window width' })
 
--- Change the project root
-vim.keymap.set('n', '<leader>pr', ':cd %<CR>', { desc = '[P]roject [R]oot' })
-
 -- Show dashboard
 vim.keymap.set('n', '<leader>sd', ':Dashboard<CR>', { desc = '[S]how [D]ashboard' })
 
 -- Buffer navigation
 vim.keymap.set('n', 'H', ':bprevious<CR>', { silent = true })
 vim.keymap.set('n', 'L', ':bnext<CR>', { silent = true })
+
+-- Get the text highlighted in visual mode and prepare a substitute command for it
+vim.keymap.set("v", "<leader>s", [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]])

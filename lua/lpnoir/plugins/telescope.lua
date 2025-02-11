@@ -34,5 +34,26 @@ return {
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = '[F]ind [H]elp Tags' })
     vim.keymap.set('n', '<leader>gf', builtin.git_files, { desc = '[G]it [F]nd files ' })
     vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
+    vim.keymap.set('v', '<leader>ff', function()
+      -- Salva il modo corrente
+      local mode = vim.fn.mode()
+
+      -- Assicurati di essere in visual mode
+      if mode == 'v' or mode == 'V' or mode == '' then
+        -- Copia la selezione nel registro temporaneo
+        vim.cmd 'normal! "vy'
+
+        -- Prendi il contenuto del registro
+        local selected_text = vim.fn.getreg 'v'
+
+        -- Pulisci il testo da eventuali newline o spazi
+        selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
+
+        -- Usa Telescope per cercare i file con il testo selezionato
+        require('telescope.builtin').find_files {
+          default_text = selected_text,
+        }
+      end
+    end, { desc = '[F]ind [F]iles with selection' })
   end,
 }

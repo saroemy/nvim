@@ -1,3 +1,7 @@
+-- Disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- Make line numbers default and enable relative line numbers for easier navigation between lines
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -33,11 +37,14 @@ vim.opt.splitbelow = true
 -- Enable break indent
 vim.opt.breakindent = true
 
+-- Optionally enable 24-bit colour
+vim.opt.termguicolors = true
+
 -- Set to true if you have a Nerd Font installed and selected in the terminal
 vim.g.have_nerd_font = false
 
 -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
+-- vim.opt.mouse = 'a'
 
 -- Don't show the mode, since it's already in the status line
 vim.opt.showmode = false
@@ -61,6 +68,3 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
-
--- For remapping the p in netrw
-vim.g.netrw_preview = 0
