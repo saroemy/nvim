@@ -29,8 +29,9 @@ return {
           group = 'DiagnosticHint',
           action = function()
             local api = require 'nvim-tree.api'
+            api.tree.toggle()
             api.tree.change_root '~/'
-            vim.cmd ':NvimTreeFocus'
+            api.tree.focus()
             vim.cmd 'normal hf'
           end,
           key = 'h',
@@ -41,8 +42,9 @@ return {
           group = 'Number',
           action = function()
             local api = require 'nvim-tree.api'
+            api.tree.toggle()
             api.tree.change_root '~/.config/nvim'
-            vim.cmd ':NvimTreeFocus'
+            api.tree.focus()
           end,
           key = 'd',
         },

@@ -8,7 +8,7 @@ vim.keymap.set('n', '<C-p>', ':NvimTreeToggle<CR>', { desc = '[P]roject [V]iew',
 vim.keymap.set('i', '<C-è>', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
 -- Save changes
-vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = '[S]ave file' })
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = '[S]ave file', silent = true  })
 
 -- YANK, PASTE AND DELETE
 --
