@@ -3,6 +3,7 @@ return {
   event = 'VimEnter',
   opts = {
     theme = 'hyper',
+    change_to_vcs_root = true,
     config = {
       week_header = {
         enable = true,

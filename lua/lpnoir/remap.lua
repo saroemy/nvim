@@ -33,7 +33,10 @@ vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down' })
 
 -- Show error on popup, useful for error copy
-vim.keymap.set('n', '<leader>se', ':lua vim.diagnostic.open_float()<CR>', { desc = 'Show error popup' })
+vim.keymap.set('n', '<leader>se', vim.diagnostic.open_float, { desc = 'Show error popup' })
+
+-- Show diagnostics
+vim.keymap.set('n', '<leader>sd', vim.diagnostic.setloclist, { desc = 'Show [D]iagnostics list' })
 
 -- Add blank line without exit from normal mode
 vim.keymap.set('n', '<S-CR>', 'O<Esc>', { noremap = true })
@@ -52,8 +55,6 @@ vim.keymap.set('n', 'ª', '<C-w>-', { desc = 'Decrease window height' })
 vim.keymap.set('n', '¬', '<C-w><', { desc = 'Decrease window width' })
 vim.keymap.set('n', '∆', '<C-w>>', { desc = 'Increase window width' })
 
--- Change the project root
-vim.keymap.set('n', '<leader>pr', ':cd %<CR>', { desc = '[P]roject [R]oot' })
 
--- Show dashboard
-vim.keymap.set('n', '<leader>sd', ':Dashboard<CR>', { desc = '[S]how [D]ashboard' })
+-- Go to dashboard
+vim.keymap.set('n', '<leader>h', ':Dashboard<CR>', { desc = 'Go to [H]ome' })
