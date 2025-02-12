@@ -48,6 +48,9 @@ return { -- Highlight, edit, and navigate code
       extension = {
         jinja = 'jinja',
       },
+      pattern = {
+        ['%.env%..*'] = 'sh',
+      },
     }
   end,
 }
