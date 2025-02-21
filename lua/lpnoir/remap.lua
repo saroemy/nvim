@@ -1,11 +1,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Use Ctrl-è for exit from insert mode
-vim.keymap.set('i', '<C-è>', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
+-- Use jk for exit from insert mode
+vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
 -- Save changes
-vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = '[S]ave file', silent = true })
+vim.keymap.set({ 'n', 'i' }, '<C-s>', '<Esc><cmd>silent! w<CR>', { desc = '[S]ave file' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 vim.keymap.set('n', '<C-q>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
@@ -17,6 +17,10 @@ vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move selected text down',
 -- Keep cursor centered when scrolling
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Scroll down and center', silent = true })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Scroll up and center', silent = true })
+
+-- Indent in visual mode keeping selection
+vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and keep selection', silent = true })
+vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and keep selection', silent = true })
 
 -- Get the text highlighted in visual mode and prepare a substitute command for it
 vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]])
@@ -51,8 +55,8 @@ vim.keymap.set('n', '<leader>sd', vim.diagnostic.setloclist, { desc = 'Show [D]i
 -- Close the current buffer
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent = true })
 -- Buffer navigation
-vim.keymap.set('n', 'H', ':bprevious<CR>', { silent = true })
-vim.keymap.set('n', 'L', ':bnext<CR>', { silent = true })
+vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { silent = true })
+vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { silent = true })
 
 -- WINDOW
 --
@@ -65,14 +69,18 @@ vim.keymap.set('n', '∆', '<C-w>>', { desc = 'Increase window width' })
 -- PLUGINS
 --
 -- Create keymap for the Tree Explorer
-vim.keymap.set('n', '<C-p>', ':NvimTreeToggle<CR>', { desc = '[P]roject [V]iew', silent = true })
+vim.keymap.set('n', '<C-p>', '<cmd>NvimTreeToggle<CR>', { desc = '[P]roject [V]iew', silent = true })
 
 -- Show dashboard
-vim.keymap.set('n', '<leader>h', ':Dashboard<CR>', { desc = 'Go to [H]ome' })
+vim.keymap.set('n', '<leader>h', '<cmd>Dashboard<CR>', { desc = 'Go to [H]ome' })
 
 -- GIT
 --
 -- Show git status
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git, { desc = '[G]it [S]tatus' })
 -- Show git preview hunk
-vim.keymap.set('n', '<leader>gh', ':Gitsigns preview_hunk<CR>', { desc = '[G]it preview [H]unk' })
+vim.keymap.set('n', '<leader>gh', '<cmd>Gitsigns preview_hunk<CR>', { desc = '[G]it preview [H]unk', silent = true })
+
+vim.keymap.set('n', '<leader>pr', function()
+  vim.cmd 'silent !osascript -e \'tell application "Arc" to reload active tab of window 1\''
+end, { desc = '[P]project browser [R]eload' })

@@ -41,10 +41,8 @@ return {
           desc = 'Dotfiles',
           group = 'Number',
           action = function()
-            local api = require 'nvim-tree.api'
-            api.tree.toggle()
-            api.tree.change_root '~/.config/nvim'
-            api.tree.focus()
+            vim.cmd 'cd ~/.config/nvim/'
+            require('telescope.builtin').find_files({cwd = '~/.config/nvim/'})
           end,
           key = 'd',
         },

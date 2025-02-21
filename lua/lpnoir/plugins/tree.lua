@@ -18,15 +18,12 @@ return {
 
       -- remove a default
       vim.keymap.del('n', '<C-]>', { buffer = bufnr })
-      vim.keymap.del('n', 'H', { buffer = bufnr })
-      vim.keymap.del('n', 'L', { buffer = bufnr })
 
       -- custom mappings
       vim.keymap.set('n', '<C-d>', api.tree.change_root_to_node, opts 'CD')
-      vim.keymap.set('n', 'hf', api.tree.toggle_hidden_filter, opts 'Toggle Filter: Dotfiles')
     end,
     git = { ignore = false },
-    filters = { custom = { '^.git$' } },
+    filters = { custom = { '^.git$', 'Library/Reminders' } },
     live_filter = {
       always_show_folders = false,
     },

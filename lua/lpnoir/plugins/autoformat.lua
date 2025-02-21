@@ -36,7 +36,8 @@ return { -- Autoformat
         args = {
           '--max-line-length=160',
           '--max-attribute-length=160',
-          '--blank-line-after-tag="load,extends,include,set"',
+          '--blank-line-after-tag="load,extends,include,set,"',
+          '--blank-line-before-tag="block,"',
           '--reformat',
           '-',
         },

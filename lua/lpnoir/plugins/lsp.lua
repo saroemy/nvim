@@ -191,7 +191,13 @@ return {
         html = {
           filetypes = { 'twig', 'html' },
         },
+        -- eslint = {
+        --   filetypes = { 'twig', 'html' },
+        -- },
         cssls = {},
+        emmet_ls = {
+          filetypes = { 'css', 'eruby', 'html', 'javascript', 'javascriptreact', 'less', 'sass', 'scss', 'svelte', 'pug', 'typescriptreact', 'vue', 'twig' },
+        },
         ts_ls = {
           filetypes = { 'javascript', 'typescript', 'typescriptreact' },
         },
