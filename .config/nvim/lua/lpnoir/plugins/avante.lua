@@ -7,7 +7,7 @@ return {
     hints = { enabled = false },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
-  build = 'make BUILD_FROM_SOURCE=true',
+  build = 'make',
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
     'stevearc/dressing.nvim',

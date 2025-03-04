@@ -23,7 +23,7 @@ return {
       vim.keymap.set('n', '<C-d>', api.tree.change_root_to_node, opts 'CD')
     end,
     git = { ignore = false },
-    filters = { custom = { '^.git$', 'Library/Reminders' } },
+    filters = { custom = { '^.git$', '^Library$' } },
     live_filter = {
       always_show_folders = false,
     },

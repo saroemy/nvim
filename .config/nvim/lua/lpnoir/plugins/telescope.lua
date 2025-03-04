@@ -40,19 +40,22 @@ return {
 
       -- Assicurati di essere in visual mode
       if mode == 'v' or mode == 'V' or mode == '' then
+        local original_reg = vim.fn.getreg '"'
+
         -- Copia la selezione nel registro temporaneo
         vim.cmd 'normal! "vy'
 
         -- Prendi il contenuto del registro
         local selected_text = vim.fn.getreg 'v'
+        --
+        -- Ripristina il registro originale
+        vim.fn.setreg('"', original_reg)
 
         -- Pulisci il testo da eventuali newline o spazi
         selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
 
         -- Usa Telescope per cercare i file con il testo selezionato
-        require('telescope.builtin').find_files {
-          default_text = selected_text,
-        }
+        require('telescope.builtin').find_files { default_text = selected_text }
       end
     end, { desc = '[F]ind [F]iles with selection' })
   end,

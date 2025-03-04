@@ -8,6 +8,9 @@ return {
   { -- Detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth',
   },
+  {
+    'tpope/vim-surround',
+  },
   { 'christoomey/vim-tmux-navigator' },
   {
     'OscarCreator/rsync.nvim',

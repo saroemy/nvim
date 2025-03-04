@@ -1,0 +1,78 @@
+set relativenumber
+set commentary
+set scrolloff=10
+
+" Imposta lo spazio come leader key
+let mapleader = " "
+" Usa 'jk' per uscire dalla modalità insert
+inoremap jk <Esc>
+" Attiva distraction free
+nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
+" Salva il file
+nnoremap <C-s> :w<CR>
+
+""" YANK, PASTE AND DELETE
+"
+" Incolla preservando il clipboard
+xnoremap <leader>p "_dP
+" Copia nella clipboard di sistema
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+" Cancella senza sovrascrivere la clipboard
+vnoremap <leader>d "_d
+nnoremap <leader>d "_d
+
+""" TERMINAL
+"
+nnoremap <c-i>s :action ActivateTerminalToolWindow<CR>
+
+""" WINDOWS
+"
+sethandler <c-j> a:vim
+sethandler <c-k> a:vim
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-w>v :action SplitVertically<CR>
+nnoremap <c-w>s :action SplitHorizontally<CR>
+nnoremap <c-w>c :action CloseContent<CR>
+nnoremap <C-p> :action ActivateProjectToolWindow<CR>
+" Buffer management
+nnoremap <leader>x :bd<CR>
+nnoremap <TAB> :action PreviousTab<CR>
+nnoremap <s-TAB> :action NextTab<CR>
+
+""" EDITING SOURCE CODE
+"
+set ideajoin
+set idearefactormode=keep
+set surround
+set multiple-cursors
+set commentary
+vnoremap < <gv
+vnoremap > >gv
+" Muovi le righe selezionate su e giù
+vnoremap K :m '<-2<CR>gv=gv
+vnoremap J :m '>+1<CR>gv=gv
+" Formatta il codice
+nnoremap <leader>f :action ReformatCode<CR>
+nnoremap <leader>cr :action Refactorings.QuickListPopupAction<CR>
+map <C-g> <Plug>NextWholeOccurrence
+
+""" SEARCHING AND SOURCE CODE NAVIGATION
+"
+set incsearch
+" Simulazione comandi Telescope per IdeaVim
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>fg :action FindInPath<CR>
+nnoremap <leader><leader> :action RecentFiles<CR>
+" lsp
+nnoremap gI :action GotoImplementation<CR>
+nnoremap gD :action GotToDeclaration<CR>
+" altri comandi di ricerca (basati su equivalenti di Telescope)
+nnoremap <leader>sa :action GotoAction<CR>
+nnoremap <leader>ca :action ShowIntentionActions<CR>
+" mostra gli errori in un popup (IdeaVim non supporta `vim.diagnostic`)
+nnoremap <leader>se :action ShowErrorDescription<CR>
+
