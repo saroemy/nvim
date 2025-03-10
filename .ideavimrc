@@ -40,8 +40,8 @@ nnoremap <c-w>c :action CloseContent<CR>
 nnoremap <C-p> :action ActivateProjectToolWindow<CR>
 " Buffer management
 nnoremap <leader>x :bd<CR>
-nnoremap <TAB> :action PreviousTab<CR>
-nnoremap <s-TAB> :action NextTab<CR>
+nnoremap <s-TAB> :action PreviousTab<CR>
+nnoremap <TAB> :action NextTab<CR>
 
 """ EDITING SOURCE CODE
 "
