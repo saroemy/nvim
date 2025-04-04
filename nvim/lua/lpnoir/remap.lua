@@ -35,7 +35,7 @@ vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
 vim.keymap.set('v', '<leader>y', '"+y', { desc = '[Y]ank in the system clipboard' })
 vim.keymap.set('n', '<leader>y', '"+y', { desc = '[Y]ank in the system clipboard' })
 -- Paste preserving the clipboard
-vim.keymap.set('x', '<leader>p', '"_dP', { desc = '[P]aste preserving clipboard' })
+vim.keymap.set('x', 'p', '"_dP', { desc = '[P]aste preserving clipboard' })
 -- Delete preserving clipboard
 vim.keymap.set('v', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })
 vim.keymap.set('n', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })

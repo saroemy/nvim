@@ -8,6 +8,16 @@ return {
       week_header = {
         enable = true,
       },
+      project = {
+        enable = true,
+        limit = 8,
+        icon = ' ',
+        label = 'Progetti Recenti',
+        action = function(path)
+          vim.cmd('cd ' .. vim.fn.fnameescape(path))
+          require('telescope.builtin').find_files()
+        end,
+      },
       shortcut = {
         {
           icon = '󰊳 ',
@@ -42,7 +52,7 @@ return {
           group = 'Number',
           action = function()
             vim.cmd 'cd ~/.config/nvim/'
-            require('telescope.builtin').find_files({cwd = '~/.config/nvim/'})
+            require('telescope.builtin').find_files { cwd = '~/.config/nvim/' }
           end,
           key = 'd',
         },

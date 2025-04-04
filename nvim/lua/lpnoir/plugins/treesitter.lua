@@ -13,16 +13,23 @@ return { -- Highlight, edit, and navigate code
       'lua',
       'luadoc',
       'markdown',
-      'markdown_inline',
       'query',
       'vim',
       'vimdoc',
       'php',
-      'javascript',
       'typescript',
       'twig',
     },
     auto_install = true,
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = 'gnn',
+        scope_incremental = 'grc',
+        node_incremental = '<TAB>',
+        node_decremental = '<S-TAB>',
+      },
+    },
     highlight = {
       enable = true,
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.

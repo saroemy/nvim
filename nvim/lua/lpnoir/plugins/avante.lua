@@ -4,6 +4,18 @@ return {
   lazy = false,
   version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
   opts = {
+    provider = 'claude',
+    claude = {
+      -- endpoint = 'https://api.anthropic.com',
+      -- model = 'claude-3-5-sonnet-20241022',
+      -- timeout = 30000, -- Timeout in milliseconds
+      -- temperature = 0,
+      -- max_tokens = 4096,
+      disable_tools = true, -- disable tools!
+    },
+    -- behaviour = {
+    --   enable_claude_text_editor_tool_mode = true,
+    -- },
     hints = { enabled = false },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
