@@ -85,5 +85,10 @@
   {
     "key": "ctrl+s",
     "command": "workbench.action.files.save"
-  }
+  },
+  {
+    "key": "shift+k",
+    "command": "editor.action.peekDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor && !isInEmbeddedEdito && vim.mode == 'Normal'"
+  },
 ]

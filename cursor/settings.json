@@ -29,9 +29,12 @@
   },
   // "autopep8.args": ["--maxLineLength", "120"],
   // PERSONAL
+  "breadcrumbs.enabled": false,
   "zenMode.centerLayout": false,
   "zenMode.hideLineNumbers": false,
   "zenMode.fullScreen": false,
+  "zenMode.showTabs": "none",
+  "window.title": "${dirty}${rootName}${separator}${activeEditorMedium}",
   // Vim key mappings
   "vim.hlsearch": true,
   "vim.incsearch": true,
@@ -43,7 +46,7 @@
   "vim.insertModeKeyBindings": [
     {
       "before": ["j", "k"],
-      "after": ["<Esc>"]
+      "after": ["<esc>"]
     }
   ],
   "vim.normalModeKeyBindingsNonRecursive": [
@@ -98,6 +101,16 @@
       "silent": true
     },
     {
+      "before": ["<leader>", "f", "g"],
+      "commands": ["workbench.action.findInFiles"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "f", "v"],
+      "commands": ["workbench.action.quickOpenView"],
+      "silent": true
+    },
+    {
       "before": ["<C-p>"],
       "commands": ["workbench.action.focusSideBar"],
       "silent": true
@@ -107,8 +120,34 @@
       "commands": ["workbench.action.toggleZenMode"],
       "silent": true
     },
+    {
+      "before": ["<leader>", "t"],
+      "commands": [
+        "workbench.action.quickOpenPreviousRecentlyUsedEditorInGroup"
+      ],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "s", "e"],
+      "commands": ["editor.action.showHover"],
+      "silent": true
+    },
+    {
+      "before": ["<leader>", "s", "d"],
+      "commands": ["workbench.actions.view.problems"],
+      "silent": true
+    }
   ],
   "vim.visualModeKeyBindings": [
+    {
+      "before": ["<C-q>"],
+      "after": ["<esc>"]
+    },
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
@@ -148,6 +187,11 @@
     {
       "before": ["<S-Tab>"],
       "commands": ["editor.action.smartSelect.shrink"]
+    },
+    {
+      "before": ["<C-g>"],
+      "commands": ["editor.action.addSelectionToNextFindMatch"],
+      "silent": true
     }
   ],
   "terminal.integrated.defaultProfile.osx": "tmux-shell",
