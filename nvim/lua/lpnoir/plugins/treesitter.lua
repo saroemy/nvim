@@ -26,8 +26,8 @@ return { -- Highlight, edit, and navigate code
       keymaps = {
         init_selection = 'gnn',
         scope_incremental = 'grc',
-        node_incremental = '<TAB>',
-        node_decremental = '<S-TAB>',
+        node_incremental = 'v',
+        node_decremental = 'V',
       },
     },
     highlight = {

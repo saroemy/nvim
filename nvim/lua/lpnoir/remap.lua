@@ -2,13 +2,13 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 -- Use jk for exit from insert mode
-vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
+-- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
 -- Save changes
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<Esc><cmd>silent! w<CR>', { desc = '[S]ave file' })
 
 -- Clear highlights on search when pressing <Esc> in normal mode
-vim.keymap.set('n', '<C-q>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
+vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>', { desc = 'Clear highlights on search' })
 
 -- Move selected lines up and down
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move selected text up', silent = true })

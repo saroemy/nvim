@@ -24,7 +24,7 @@ nnoremap <leader>d "_d
 
 """ TERMINAL
 "
-nnoremap <c-i>s :action ActivateTerminalToolWindow<CR>
+nnoremap <c-a>s :action ActivateTerminalToolWindow<CR>
 
 """ WINDOWS
 "
