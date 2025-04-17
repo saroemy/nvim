@@ -55,8 +55,8 @@ vim.keymap.set('n', '<leader>sd', vim.diagnostic.setloclist, { desc = 'Show [D]i
 -- Close the current buffer
 vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent = true })
 -- Buffer navigation
-vim.keymap.set('n', '<Tab>', '<cmd>bnext<CR>', { silent = true })
-vim.keymap.set('n', '<S-Tab>', '<cmd>bprevious<CR>', { silent = true })
+vim.keymap.set('n', '<C-n>', '<cmd>bnext<CR>', { silent = true })
+vim.keymap.set('n', '<C-p>', '<cmd>bprevious<CR>', { silent = true })
 
 -- WINDOW
 --
@@ -69,7 +69,7 @@ vim.keymap.set('n', '∆', '<C-w>>', { desc = 'Increase window width' })
 -- PLUGINS
 --
 -- Create keymap for the Tree Explorer
-vim.keymap.set('n', '<C-p>', '<cmd>NvimTreeToggle<CR>', { desc = '[P]roject [V]iew', silent = true })
+vim.keymap.set('n', '<C-b>', '<cmd>NvimTreeToggle<CR>', { desc = '[P]roject [V]iew', silent = true })
 
 -- Show dashboard
 vim.keymap.set('n', '<leader>h', '<cmd>Dashboard<CR>', { desc = 'Go to [H]ome' })

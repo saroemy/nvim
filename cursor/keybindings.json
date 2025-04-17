@@ -74,7 +74,7 @@
   },
   // PERSONAL
   {
-    "key": "cmd+t",
+    "key": "ctrl+t",
     "command": "workbench.action.terminal.toggleTerminal"
   },
   {
@@ -90,5 +90,5 @@
     "key": "shift+k",
     "command": "editor.action.peekDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus && !inReferenceSearchEditor && !isInEmbeddedEditor && !isInEmbeddedEdito && vim.mode == 'Normal'"
-  },
+  }
 ]
