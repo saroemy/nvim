@@ -18,4 +18,7 @@ return {
     dependencies = 'nvim-lua/plenary.nvim',
     opts = {},
   },
+  -- {
+  --   'mg979/vim-visual-multi',
+  -- },
 }

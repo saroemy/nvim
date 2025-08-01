@@ -5,7 +5,7 @@ set scrolloff=10
 " Imposta lo spazio come leader key
 let mapleader = " "
 " Usa 'jk' per uscire dalla modalità insert
-inoremap jk <Esc>
+"inoremap jk <Esc>
 " Attiva distraction free
 nnoremap <leader>z :action ToggleDistractionFreeMode<CR>
 " Salva il file
@@ -37,11 +37,11 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-w>v :action SplitVertically<CR>
 nnoremap <c-w>s :action SplitHorizontally<CR>
 nnoremap <c-w>c :action CloseContent<CR>
-nnoremap <C-p> :action ActivateProjectToolWindow<CR>
+nnoremap <C-b> :action ActivateProjectToolWindow<CR>
 " Buffer management
 nnoremap <leader>x :bd<CR>
-nnoremap <s-TAB> :action PreviousTab<CR>
-nnoremap <TAB> :action NextTab<CR>
+nnoremap <C-p> :action PreviousTab<CR>
+nnoremap <C-n> :action NextTab<CR>
 
 """ EDITING SOURCE CODE
 "

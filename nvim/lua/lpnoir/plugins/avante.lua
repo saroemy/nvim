@@ -1,32 +1,32 @@
 return {
   'yetone/avante.nvim',
   event = 'VeryLazy',
-  lazy = false,
-  version = false, -- Set this to "*" to always pull the latest release version, or set it to false to update to the latest code changes.
+  version = false, -- Never set this value to "*"! Never!
   opts = {
-    provider = 'claude',
-    claude = {
-      -- endpoint = 'https://api.anthropic.com',
-      -- model = 'claude-3-5-sonnet-20241022',
-      -- timeout = 30000, -- Timeout in milliseconds
-      -- temperature = 0,
-      -- max_tokens = 4096,
-      disable_tools = true, -- disable tools!
+    providers = {
+      claude = {
+        disable_tools = true, -- disable tools!
+      },
     },
-    -- behaviour = {
-    --   enable_claude_text_editor_tool_mode = true,
-    -- },
+    mode = 'legacy',
+    behaviour = {
+      enable_claude_text_editor_tool_mode = false,
+    },
     hints = { enabled = false },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = 'make',
+  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
   dependencies = {
     'nvim-treesitter/nvim-treesitter',
     'stevearc/dressing.nvim',
     'nvim-lua/plenary.nvim',
     'MunifTanjim/nui.nvim',
     --- The below dependencies are optional,
-    -- 'zbirenbaum/copilot.lua', -- for providers='copilot'
+    'nvim-telescope/telescope.nvim', -- for file_selector provider telescope
+    'ibhagwan/fzf-lua', -- for file_selector provider fzf
+    'nvim-tree/nvim-web-devicons', -- or echasnovski/mini.icons
+    'zbirenbaum/copilot.lua', -- for providers='copilot'
     {
       -- support for image pasting
       'HakonHarnes/img-clip.nvim',
@@ -39,6 +39,8 @@ return {
           drag_and_drop = {
             insert_mode = true,
           },
+          -- required for Windows users
+          use_absolute_path = true,
         },
       },
     },

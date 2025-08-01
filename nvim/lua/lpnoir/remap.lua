@@ -4,6 +4,9 @@ vim.g.maplocalleader = ' '
 -- Use jk for exit from insert mode
 -- vim.keymap.set('i', 'jk', '<Esc>', { noremap = true, desc = 'Exit from insert mode' })
 
+-- Move to end of line in insert mode
+vim.keymap.set('i', '<C-e>', '<C-o>$', { desc = 'Move to end of line in insert mode' })
+
 -- Save changes
 vim.keymap.set({ 'n', 'i' }, '<C-s>', '<Esc><cmd>silent! w<CR>', { desc = '[S]ave file' })
 
@@ -57,6 +60,10 @@ vim.keymap.set('n', '<leader>x', ':bd<CR>', { desc = '[X] Close buffer', silent 
 -- Buffer navigation
 vim.keymap.set('n', '<C-n>', '<cmd>bnext<CR>', { silent = true })
 vim.keymap.set('n', '<C-p>', '<cmd>bprevious<CR>', { silent = true })
+-- Copy buffer relative path
+vim.keymap.set('n', '<leader>Y', function()
+  vim.fn.setreg('+', vim.fn.expand '%')
+end, { desc = 'Copy relative path' })
 
 -- WINDOW
 --
