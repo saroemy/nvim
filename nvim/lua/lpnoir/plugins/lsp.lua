@@ -298,27 +298,21 @@ return {
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      for server, config in pairs(servers) do
+        vim.lsp.config(server, config)
+      end
+
       require('mason-lspconfig').setup {
         ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        automatic_enable = false,
-        automatic_installation = true,
-        -- handlers = {
-        --   function(server_name)
-        --     local server = servers[server_name] or {}
-        --     -- this handles overriding only values explicitly passed
-        --     -- by the server configuration above. useful when disabling
-        --     -- certain features of an lsp (for example, turning off formatting for ts_ls)
-        --     server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        --     require('lspconfig')[server_name].setup(server)
-        --   end,
-        -- },
+        automatic_enable = true,
+        automatic_installation = false,
       }
 
-      for _, server_name in ipairs(require('mason-lspconfig').get_installed_servers()) do
-        local server = servers[server_name] or {}
-        -- print(vim.inspect(server))
-        require('lspconfig')[server_name].setup(server)
-      end
+      -- for _, server_name in ipairs(require('mason-lspconfig').get_installed_servers()) do
+      --   local server = servers[server_name] or {}
+      --   -- print(vim.inspect(server))
+      --   require('lspconfig')[server_name].setup(server)
+      -- end
     end,
   },
 }

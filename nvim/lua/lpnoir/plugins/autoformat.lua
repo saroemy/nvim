@@ -42,7 +42,8 @@ return { -- Autoformat
     formatters = {
       php_cs_fixer = {
         command = vim.fn.stdpath 'data' .. '/mason/bin/php-cs-fixer',
-        args = { 'fix', '--rules=@Symfony', '$FILENAME' },
+        args = { 'fix', '$FILENAME' },
+        -- args = { 'fix', '--rules=@Symfony', '$FILENAME' },
       },
       djlint = {
         args = {

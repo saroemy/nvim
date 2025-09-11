@@ -107,7 +107,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 
     -- It's also possible to pass additional configuration options.
     --  See `:help telescope.builtin.live_grep()` for information about particular keys
-    vim.keymap.set('n', '<leader>s/', function()
+    vim.keymap.set('n', '<leader>f/', function()
       builtin.live_grep {
         grep_open_files = true,
         prompt_title = 'Live Grep in Open Files',
@@ -115,8 +115,16 @@ return { -- Fuzzy Finder (files, lsp, etc)
     end, { desc = '[F]ind [/] in Open Files' })
 
     -- Shortcut for searching your Neovim configuration files
-    vim.keymap.set('n', '<leader>sn', function()
+    vim.keymap.set('n', '<leader>fc', function()
       builtin.find_files { cwd = vim.fn.stdpath 'config' }
-    end, { desc = '[F]ind [N]eovim files' })
+    end, { desc = '[F]ind [C]onfiguration neovim files' })
+
+    -- Find files inclusi quelli nascosti
+    vim.keymap.set('n', '<leader>fa', function()
+      require('telescope.builtin').find_files {
+        hidden = true,
+        no_ignore = true,
+      }
+    end, { desc = '[F]ind [A]ll files (including hidden)' })
   end,
 }

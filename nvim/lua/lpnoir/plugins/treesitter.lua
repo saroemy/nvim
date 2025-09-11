@@ -21,15 +21,15 @@ return { -- Highlight, edit, and navigate code
       'twig',
     },
     auto_install = true,
-    -- incremental_selection = {
-    --   enable = true,
-    --   keymaps = {
-    --     init_selection = 'gnn',
-    --     scope_incremental = 'grc',
-    --     node_incremental = 'v',
-    --     node_decremental = 'V',
-    --   },
-    -- },
+    incremental_selection = {
+      enable = true,
+      keymaps = {
+        init_selection = 'gnn',
+        scope_incremental = 'grc',
+        node_incremental = 'v',
+        node_decremental = 'V',
+      },
+    },
     highlight = {
       enable = true,
       -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
