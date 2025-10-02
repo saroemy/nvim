@@ -78,23 +78,42 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
     vim.keymap.set('v', '<leader>ff', function()
-      -- Salva il modo corrente
+      -- Save the current mode
       local mode = vim.fn.mode()
-      -- Assicurati di essere in visual mode
+      -- Make sure you are in visual mode
       if mode == 'v' or mode == 'V' or mode == '' then
         local original_reg = vim.fn.getreg '"'
-        -- Copia la selezione nel registro temporaneo
+        -- Copy the selection to a temporary register
         vim.cmd 'normal! "vy'
-        -- Prendi il contenuto del registro
+        -- Get the contents of the register
         local selected_text = vim.fn.getreg 'v'
-        -- Ripristina il registro originale
+        -- Restore the original register
         vim.fn.setreg('"', original_reg)
-        -- Pulisci il testo da eventuali newline o spazi
+        -- Clean the text from any newline or spaces
         selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
-        -- Usa Telescope per cercare i file con il testo selezionato
+        -- Use Telescope to search files with the selected text
         require('telescope.builtin').find_files { default_text = selected_text }
       end
     end, { desc = '[F]ind [F]iles with selection' })
+
+    vim.keymap.set('v', '<leader>fg', function()
+      -- Save the current mode
+      local mode = vim.fn.mode()
+      -- Make sure you are in visual mode
+      if mode == 'v' or mode == 'V' or mode == '' then
+        local original_reg = vim.fn.getreg '"'
+        -- Copy the selection to a temporary register
+        vim.cmd 'normal! "vy'
+        -- Get the contents of the register
+        local selected_text = vim.fn.getreg 'v'
+        -- Restore the original register
+        vim.fn.setreg('"', original_reg)
+        -- Clean the text from any newline or spaces
+        selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
+        -- Use Telescope to search files with the selected text
+        require('telescope.builtin').live_grep { default_text = selected_text }
+      end
+    end, { desc = '[F]ind by [G]rep with selection' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()

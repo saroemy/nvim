@@ -71,3 +71,21 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+-- Closes empty, unmodified buffers when you open a new one
+vim.api.nvim_create_autocmd('BufReadPost', {
+  callback = function()
+    -- Find all buffers
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+      -- Check if the buffer is empty, unmodified, and loaded
+      if
+        vim.api.nvim_buf_is_loaded(buf)
+        and vim.api.nvim_buf_get_name(buf) == ''
+        and not vim.api.nvim_get_option_value('modified', { buf = buf })
+        and buf ~= vim.api.nvim_get_current_buf()
+      then
+        vim.api.nvim_buf_delete(buf, { force = false })
+      end
+    end
+  end,
+})
