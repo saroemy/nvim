@@ -42,6 +42,9 @@ vim.keymap.set('x', 'p', '"_dP', { desc = '[P]aste preserving clipboard' })
 -- Delete preserving clipboard
 vim.keymap.set('v', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })
 vim.keymap.set('n', '<leader>d', '"_d', { desc = '[D]elete Preserving clipboard' })
+-- Paste from system clipboard
+vim.keymap.set('v', '<leader>p', '"+P', { desc = '[P]aste from system clipboard' })
+vim.keymap.set('n', '<leader>p', '"+P', { desc = '[P]aste from system clipboard' })
 -- Change preserving clipboard
 vim.keymap.set('v', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })
 vim.keymap.set('n', '<leader>c', '"_c', { desc = '[C]hange Preserving clipboard' })

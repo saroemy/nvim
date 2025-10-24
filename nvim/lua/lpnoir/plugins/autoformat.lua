@@ -34,10 +34,11 @@ return { -- Autoformat
       typescript = { 'prettier' },
       typescriptreact = { 'prettier' },
       json = { 'prettier' },
-      -- javascript = { 'prettier' },
-      -- javascriptreact = { 'prettier' },
-      -- html = { 'prettier' },
-      -- yaml = { 'prettier' },
+      bash = { 'shfmt' },
+      javascript = { 'prettier' },
+      javascriptreact = { 'prettier' },
+      html = { 'prettier' },
+      yaml = { 'prettier' },
     },
     formatters = {
       php_cs_fixer = {
@@ -55,6 +56,14 @@ return { -- Autoformat
           '-',
         },
       },
+      -- prettier = {
+      --   prepend_args = {
+      --     '--print-width', '120',
+      --     -- altre opzioni che vuoi
+      --     '--single-quote', 'true',
+      --     '--trailing-comma', 'es5',
+      --   },
+      -- },
     },
   },
 }

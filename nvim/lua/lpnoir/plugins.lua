@@ -12,13 +12,4 @@ return {
     'tpope/vim-surround',
   },
   { 'christoomey/vim-tmux-navigator' },
-  {
-    'OscarCreator/rsync.nvim',
-    build = 'make',
-    dependencies = 'nvim-lua/plenary.nvim',
-    opts = {},
-  },
-  -- {
-  --   'mg979/vim-visual-multi',
-  -- },
 }

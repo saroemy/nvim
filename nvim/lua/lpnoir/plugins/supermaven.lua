@@ -6,6 +6,6 @@ return {
       clear_suggestion = '<C-j>',
       accept_word = '<C-l>',
     },
-    ignore_filetypes = { 'codecompanion' },
+    ignore_filetypes = { 'codecompanion', 'gitcommit' },
   },
 }

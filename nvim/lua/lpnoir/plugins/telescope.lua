@@ -77,43 +77,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
     vim.keymap.set('n', '<leader>f.', builtin.oldfiles, { desc = '[F]ind Recent Files ("." for repeat)' })
     vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
-    vim.keymap.set('v', '<leader>ff', function()
-      -- Save the current mode
-      local mode = vim.fn.mode()
-      -- Make sure you are in visual mode
-      if mode == 'v' or mode == 'V' or mode == '' then
-        local original_reg = vim.fn.getreg '"'
-        -- Copy the selection to a temporary register
-        vim.cmd 'normal! "vy'
-        -- Get the contents of the register
-        local selected_text = vim.fn.getreg 'v'
-        -- Restore the original register
-        vim.fn.setreg('"', original_reg)
-        -- Clean the text from any newline or spaces
-        selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
-        -- Use Telescope to search files with the selected text
-        require('telescope.builtin').find_files { default_text = selected_text }
-      end
-    end, { desc = '[F]ind [F]iles with selection' })
-
-    vim.keymap.set('v', '<leader>fg', function()
-      -- Save the current mode
-      local mode = vim.fn.mode()
-      -- Make sure you are in visual mode
-      if mode == 'v' or mode == 'V' or mode == '' then
-        local original_reg = vim.fn.getreg '"'
-        -- Copy the selection to a temporary register
-        vim.cmd 'normal! "vy'
-        -- Get the contents of the register
-        local selected_text = vim.fn.getreg 'v'
-        -- Restore the original register
-        vim.fn.setreg('"', original_reg)
-        -- Clean the text from any newline or spaces
-        selected_text = selected_text:gsub('\n', ''):gsub('^%s*(.-)%s*$', '%1')
-        -- Use Telescope to search files with the selected text
-        require('telescope.builtin').live_grep { default_text = selected_text }
-      end
-    end, { desc = '[F]ind by [G]rep with selection' })
+    vim.keymap.set('v', '<leader>fg', builtin.grep_string, { desc = '[F]ind by [G]rep with selection' })
 
     -- Slightly advanced example of overriding default behavior and theme
     vim.keymap.set('n', '<leader>/', function()
@@ -145,5 +109,13 @@ return { -- Fuzzy Finder (files, lsp, etc)
         no_ignore = true,
       }
     end, { desc = '[F]ind [A]ll files (including hidden)' })
+
+    vim.keymap.set('n', 'gf', function()
+      local file = vim.fn.expand '<cfile>'
+      require('telescope.builtin').find_files {
+        default_text = file,
+        find_command = { 'fd', '--type', 'f', '--hidden', '--exclude', 'node_modules', '--exclude', '.git' },
+      }
+    end)
   end,
 }

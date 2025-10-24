@@ -51,8 +51,8 @@ return {
           desc = 'Dotfiles',
           group = 'Number',
           action = function()
-            vim.cmd 'cd ~/2Aree/dotfiles/'
-            require('telescope.builtin').find_files { cwd = '~/2Aree/dotfiles/' }
+            vim.cmd 'cd ~/.config/nvim/'
+            require('telescope.builtin').find_files { cwd = '~/.config/nvim/' }
           end,
           key = 'd',
         },

@@ -16,11 +16,11 @@ return {
       -- default mappings
       api.config.mappings.default_on_attach(bufnr)
 
-      -- remove a default
-      vim.keymap.del('n', '<C-]>', { buffer = bufnr })
-
-      -- custom mappings
-      vim.keymap.set('n', '<C-d>', api.tree.change_root_to_node, opts 'CD')
+      -- -- remove a default
+      -- vim.keymap.del('n', '<C-]>', { buffer = bufnr })
+      --
+      -- -- custom mappings
+      -- vim.keymap.set('n', '<C-d>', api.tree.change_root_to_node, opts 'CD')
     end,
     git = { ignore = false },
     filters = { custom = { '^.git$', '^Library$', '.DS_Store' } },

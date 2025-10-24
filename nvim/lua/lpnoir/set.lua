@@ -83,6 +83,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
         and vim.api.nvim_buf_get_name(buf) == ''
         and not vim.api.nvim_get_option_value('modified', { buf = buf })
         and buf ~= vim.api.nvim_get_current_buf()
+        and vim.api.nvim_get_option_value('buftype', { buf = buf }) == ''
       then
         vim.api.nvim_buf_delete(buf, { force = false })
       end

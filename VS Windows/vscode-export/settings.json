@@ -1,6 +1,6 @@
 {
-  "workbench.iconTheme": "catppuccin-frappe",
   "workbench.colorTheme": "Catppuccin Frappé",
+  "workbench.iconTheme": "catppuccin-frappe",
   "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontLigatures": true,
   "editor.fontSize": 14,
@@ -10,8 +10,11 @@
   "terminal.integrated.fontSize": 14,
   "workbench.editor.enablePreview": false,
   "workbench.tree.renderIndentGuides": "always", // Mostra le guide di indentazione
-  "window.zoomLevel": 0.4,
+  // "window.zoomLevel": 0.4,
   "git.autofetch": true,
+  "editor.minimap.enabled": false,
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "redhat.telemetry.enabled": false,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -101,11 +104,6 @@
       "silent": true
     },
     {
-      "before": ["<C-b>"],
-      "commands": ["workbench.action.focusSideBar"],
-      "silent": true
-    },
-    {
       "before": ["<leader>", "z"],
       "commands": ["workbench.action.toggleZenMode"],
       "silent": true
@@ -131,9 +129,17 @@
       "before": ["<leader>", "s", "d"],
       "commands": ["workbench.actions.view.problems"],
       "silent": true
-    }
+    },
+    {
+      "before": ["leader", "a", "a"],
+      "commands": ["workbench.panel.chat.view.copilot.focus"]
+    },
   ],
   "vim.visualModeKeyBindings": [
+    {
+      "before": ["leader", "a", "e"],
+      "commands": ["editor.action.quickFix"]
+    },
     {
       "before": ["K"],
       "commands": ["editor.action.moveLinesUpAction"]
@@ -186,5 +192,5 @@
       "path": "tmux",
       "args": ["new-session", "-A", "-s", "vscode:${workspaceFolder}"]
     }
-  }
+  },
 }
