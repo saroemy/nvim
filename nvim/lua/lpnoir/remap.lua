@@ -28,10 +28,6 @@ vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and keep selection', sile
 -- Get the text highlighted in visual mode and prepare a substitute command for it
 vim.keymap.set('v', '<leader>s', [[y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>]])
 
--- Add blank line without exit from normal mode
-vim.keymap.set('n', '<S-CR>', 'O<Esc>', { noremap = true })
-vim.keymap.set('n', '<CR>', 'o<Esc>', { noremap = true })
-
 -- YANK, PASTE AND DELETE
 --
 -- Yank in the system clipboard

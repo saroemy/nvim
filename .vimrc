@@ -56,15 +56,13 @@ endif
 let mapleader = " "
 let maplocalleader = " "
 
-" Use jk for exit from insert mode
-inoremap jk <Esc>
 
 " Save changes
 nnoremap <C-s> :silent! w<CR>
 inoremap <C-s> <Esc>:silent! w<CR>
 
-" Clear highlights on search
-nnoremap <C-q> :nohlsearch<CR>
+" Clear highlights on search when pressing <Esc> in normal mode
+nnoremap <Esc> :nohlsearch<CR>
 
 " Move selected lines up and down
 vnoremap K :m '<-2<CR>gv=gv
@@ -81,10 +79,6 @@ vnoremap > >gv
 " Get the text highlighted in visual mode and prepare a substitute command for it
 vnoremap <leader>s y:%s/<C-r>"/<C-r>"/gI<Left><Left><Left>
 
-" Add blank line without exit from normal mode
-nnoremap <S-CR> O<Esc>
-nnoremap <CR> o<Esc>
-
 " YANK, PASTE AND DELETE
 "
 " Yank in the system clipboard
@@ -92,6 +86,9 @@ vnoremap <leader>y "+y
 nnoremap <leader>y "+y
 " Paste preserving the clipboard
 xnoremap p "_dP
+" Paste from system clipboard
+vnoremap <leader>p "+P
+nnoremap <leader>p "+P
 " Delete preserving clipboard
 vnoremap <leader>d "_d
 nnoremap <leader>d "_d
@@ -122,9 +119,6 @@ nnoremap <leader>gs :Git<CR>
 " Show git preview hunk (if you have gitsigns installed)
 nnoremap <leader>gh :Gitsigns preview_hunk<CR>
 
-" Reload browser (Arc specific)
-nnoremap <leader>pr :silent !osascript -e 'tell application "Arc" to reload active tab of window 1'<CR>
-
 " Make line numbers default and enable relative line numbers
 set number
 set relativenumber
@@ -150,6 +144,9 @@ set signcolumn=yes
 " Decrease update time
 set updatetime=250
 
+" Enable automatic reload when files change externally
+set autoread
+
 " Decrease mapped sequence wait time
 set timeoutlen=600
 
@@ -159,6 +156,11 @@ set splitbelow
 
 " Enable break indent
 set breakindent
+
+" Optionally enable 24-bit colour
+if has('termguicolors')
+  set termguicolors
+endif
 
 " Don't show the mode, since it's already in the status line
 set noshowmode
